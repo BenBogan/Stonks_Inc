@@ -16,9 +16,9 @@ def stock_pull(stock,start,end):
 
 ## LOADING DATA
 #df = pdr.get_data_yahoo('TSLA', start= '2020-05-15', end='2020-10-2')
-stock = 'TSLA'
+stock = 'ZM'
 start = '2020-05-15'
-end = '2020-10-2'
+end = '2020-11-21'
 df = stock_pull(stock,start,end)
 #CALCULATING 20 DAY STD AND MOVING Average
 
