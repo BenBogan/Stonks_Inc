@@ -1,0 +1,10 @@
+FROM python:3
+ADD test.py /
+RUN pip install pandas
+RUN pip install matplotlib
+RUN pip install plotly
+RUN pip install yfinance
+RUN pip install pandas_datareader
+# RUN pip install psutil
+EXPOSE 80
+CMD [ "python", "./test.py" ]
