@@ -16,10 +16,10 @@ def stock_pull(stock,start,end):
     return s
 
 ## LOADING DATA
-#df = pdr.get_data_yahoo('TSLA', start= '2020-05-15', end='2020-10-2')
-stock = 'TSLA'
+#df = pdr.get_data_yahoo(Stock, start= '2020-05-15', end='2020-10-2') #what is this
+stock = 'spy'
 start = '2020-05-15'
-end = '2020-10-2'
+end = '2020-11-20'
 df = stock_pull(stock,start,end)
 
 #CALCULATING 20 DAY STD AND MOVING Average
@@ -51,7 +51,7 @@ N = len(df.index)
 #p_vi data for graph
 p_vi = pvi(tcp, v,)
 
-#trace 1 = tsla stock price
+#trace 1 = stock price
 trace1 = {
     'x' : df.index,
     #'open' : df.Open,
@@ -65,7 +65,7 @@ trace1 = {
             },
     #'low': df.Low,
     #'type': 'candlestick',
-    'name': 'TSLA',
+    'name': stock+' price',
     'showlegend': True
 }
 
@@ -126,7 +126,7 @@ trace5 = {
 data = [trace1,trace2,trace3,trace4,trace5]
 lig = go.Layout({
         'title': {
-            'text': 'Tesla(TSLA) Moving Averages',
+            'text': stock+' Moving Averages',
             'font':{
                 'size':20
             }
