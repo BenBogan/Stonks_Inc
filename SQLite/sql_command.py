@@ -11,12 +11,31 @@ DATABASE_PATH = r"db\main.db" #The location/name of the database
 # SQL_COMMAND = """SELECT * FROM Stocks"""
 
 #Do this to put a new row in (not working)
+
+# COLUMN_NAME =
+# DATA_TYPE =
+# sql_add_column_command = """ALTER TABLE Stocks ADD COLUMN {} {}
+#                          """.format(COLUMN_NAME, DATA_TYPE)
+
 SQL_COMMAND = """INSERT INTO Stocks VALUES ("AAPL")"""
 
 conn = create_connection(DATABASE_PATH)
 cur = conn.cursor()
 
-cur.execute(SQL_COMMAND)
+cur.execute(sql_add_column_command)
+
+cur.execute("SELECT * FROM Stocks")
+print(cur.fetchall())
+
+while(True):
+    commit = input("commit? (y/n)")
+    if commit == "y":
+        conn.commit()
+        break
+    elif commit == "n":
+        break
+    else:
+        print("say y or n faggot")
 
 cur.close()
 conn.close()
